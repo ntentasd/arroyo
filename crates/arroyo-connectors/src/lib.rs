@@ -28,6 +28,7 @@ pub mod polling_http;
 pub mod preview;
 pub mod rabbitmq;
 pub mod redis;
+pub mod scylla;
 pub mod single_file;
 pub mod sse;
 pub mod stdout;
@@ -51,6 +52,7 @@ pub fn connectors() -> HashMap<&'static str, Box<dyn ErasedConnector>> {
         Box::new(preview::PreviewConnector {}),
         Box::new(rabbitmq::RabbitmqConnector {}),
         Box::new(redis::RedisConnector {}),
+        Box::new(scylla::ScyllaConnector {}),
         Box::new(single_file::SingleFileConnector {}),
         Box::new(sse::SSEConnector {}),
         Box::new(stdout::StdoutConnector {}),
