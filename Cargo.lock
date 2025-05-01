@@ -567,6 +567,7 @@ dependencies = [
  "rustls-native-certs 0.8.1",
  "rustls-pemfile 2.2.0",
  "sasl2-sys",
+ "scylla",
  "serde",
  "serde_json",
  "tokio",
@@ -7497,6 +7498,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "rand_pcg"
+version = "0.9.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b48ac3f7ffaab7fac4d2376632268aa5f89abdb55f7ebf8f4d11fffccb2320f7"
+dependencies = [
+ "rand_core 0.9.3",
+]
+
+[[package]]
 name = "raw-cpuid"
 version = "11.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -8184,6 +8194,72 @@ checksum = "da046153aa2352493d6cb7da4b6e5c0c057d8a1d0a9aa8560baffdd945acd414"
 dependencies = [
  "ring",
  "untrusted",
+]
+
+[[package]]
+name = "scylla"
+version = "1.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bd81aa1c6de67ed43f78a64aa233c547c569979922ab2e6c6d58730f0d53b651"
+dependencies = [
+ "arc-swap",
+ "async-trait",
+ "byteorder",
+ "bytes",
+ "chrono",
+ "dashmap 5.5.3",
+ "futures",
+ "hashbrown 0.14.5",
+ "itertools 0.14.0",
+ "lazy_static",
+ "lz4_flex",
+ "openssl",
+ "rand 0.9.0",
+ "rand_pcg",
+ "rustls 0.23.26",
+ "scylla-cql",
+ "smallvec",
+ "snap",
+ "socket2",
+ "thiserror 2.0.12",
+ "tokio",
+ "tokio-openssl",
+ "tokio-rustls 0.26.2",
+ "tracing",
+ "uuid",
+]
+
+[[package]]
+name = "scylla-cql"
+version = "1.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ae84054fed47b0a7e757d66aeb4574a4ca9696bf68c25ed6325b0f198c15795b"
+dependencies = [
+ "async-trait",
+ "byteorder",
+ "bytes",
+ "chrono",
+ "itertools 0.14.0",
+ "lz4_flex",
+ "scylla-macros",
+ "snap",
+ "stable_deref_trait",
+ "thiserror 2.0.12",
+ "tokio",
+ "uuid",
+ "yoke",
+]
+
+[[package]]
+name = "scylla-macros"
+version = "1.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e67d343ebea5cc079bfa89ca4b231b432207c3748baaa3b00e5c238e7644e838"
+dependencies = [
+ "darling",
+ "proc-macro2",
+ "quote",
+ "syn 2.0.100",
 ]
 
 [[package]]
@@ -9201,6 +9277,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bbae76ab933c85776efabc971569dd6119c580d8f5d448769dec1764bf796ef2"
 dependencies = [
  "native-tls",
+ "tokio",
+]
+
+[[package]]
+name = "tokio-openssl"
+version = "0.6.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "59df6849caa43bb7567f9a36f863c447d95a11d5903c9cc334ba32576a27eadd"
+dependencies = [
+ "openssl",
+ "openssl-sys",
  "tokio",
 ]
 
