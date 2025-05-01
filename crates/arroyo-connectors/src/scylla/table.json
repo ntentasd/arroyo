@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "title": "ScyllaTable",
+  "properties": {
+    "connectorType": {
+      "type": "object",
+      "title": "Table Type",
+      "oneOf": [
+        {
+          "type": "object",
+          "title": "Sink",
+          "properties": {
+            "target": {
+              "type": "object",
+              "title": "Target",
+              "description": "Configures how rows get inserted into Scylla",
+              "properties": {
+                "keyspace": {
+                  "type": "string",
+                  "title": "Keyspace"
+                },
+                "table": {
+                  "type": "string",
+                  "title": "Table"
+                }
+              },
+              "required": ["keyspace", "table"],
+              "additionalProperties": false
+            }
+          },
+          "required": ["target"],
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "required": ["connectorType"]
+}

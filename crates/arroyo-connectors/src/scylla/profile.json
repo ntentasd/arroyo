@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "title": "ScyllaConfig",
+  "properties": {
+    "connection": {
+      "type": "string",
+      "title": "Addresses",
+      "description": "List of comma-separated host:port of each ScyllaDB node",
+      "examples": ["scylla-0:9042,scylla-1:9042"],
+      "pattern": "^\\s*([A-Za-z0-9.-]+:\\d+)(?:[ ,\\n]+[A-Za-z0-9.-]+:\\d+)*\\s*$"
+    },
+    "username": {
+      "type": "string",
+      "format": "var-str"
+    },
+    "password": {
+      "type": "string",
+      "format": "var-str"
+    }
+  },
+  "required": ["connection"],
+  "sensitive": ["password"]
+}
